@@ -8,7 +8,7 @@
         <OutputType>Library</OutputType>
         <AppDesignerFolder>Properties</AppDesignerFolder>
         <RootNamespace>RetargetMayaPlugin</RootNamespace>
-        <AssemblyName>MayaPlugin.nll</AssemblyName>
+        <AssemblyName>XrayRetargetAnimationPlugin.nll</AssemblyName>
         <TargetFrameworkVersion>v4.5</TargetFrameworkVersion>
         <FileAlignment>512</FileAlignment>
         <UseWpf>True</UseWpf>
