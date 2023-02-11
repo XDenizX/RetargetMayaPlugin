@@ -49,6 +49,7 @@
         <Reference Include="WindowsBase" />
     </ItemGroup>
     <ItemGroup>
+        <Compile Include="Commands\BaseCommand.cs" />
         <Compile Include="Commands\ExportCommand.cs" />
         <Compile Include="Commands\SelectFolderCommand.cs" />
         <Compile Include="Helpers\CharacterHelper.cs" />

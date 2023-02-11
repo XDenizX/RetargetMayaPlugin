@@ -1,17 +1,15 @@
-﻿using System;
-using System.IO;
+﻿using System.IO;
 using System.Linq;
-using System.Windows.Input;
 using RetargetMayaPlugin.Helpers;
 using RetargetMayaPlugin.ViewModels;
 
 namespace RetargetMayaPlugin.Commands;
 
-public class ExportCommand : ICommand
+public class ExportCommand : BaseCommand
 {
     private const string ExportTypeName = "X-Ray skeletal motion";
     
-    public bool CanExecute(object parameter)
+    public override bool CanExecute(object parameter)
     {
         if (parameter is not ExportAnimationsWindowViewModel viewModel)
             return false;
@@ -22,7 +20,7 @@ public class ExportCommand : ICommand
                && viewModel.SourceMesh != viewModel.TargetMesh;
     }
 
-    public void Execute(object parameter)
+    public override void Execute(object parameter)
     {
         if (parameter is not ExportAnimationsWindowViewModel viewModel)
             return;
@@ -37,11 +35,5 @@ public class ExportCommand : ICommand
             var filepath = Path.Combine(viewModel.Filepath, $"{clipViewModel.Name}.skl");
             ExportHelper.Export(filepath, ExportTypeName);
         }
-    }
-    
-    public event EventHandler CanExecuteChanged
-    {
-        add => CommandManager.RequerySuggested += value;
-        remove => CommandManager.RequerySuggested -= value;
     }
 }
