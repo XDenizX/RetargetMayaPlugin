@@ -34,7 +34,8 @@
                     <ControlTemplate>
                         <StackPanel>
                             <CheckBox 
-                                Content="Select all"/>
+                                Content="Select all"
+                                IsChecked="{Binding IsAllChecked}"/>
                             <ItemsPresenter />  
                         </StackPanel>
                     </ControlTemplate>

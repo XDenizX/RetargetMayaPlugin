@@ -36,6 +36,18 @@ public class ExportAnimationsWindowViewModel : BaseViewModel
         set => SetField(ref _filepath, value);
     }
     
+    public bool IsAllChecked
+    {
+        get => ClipViewModels.All(clipViewModel => clipViewModel.IsChecked);
+        set
+        {
+            foreach (var clipViewModel in ClipViewModels)
+            {
+                clipViewModel.IsChecked = value;
+            }
+        }
+    }
+
     public ExportAnimationsWindowViewModel(ExportContext exportContext)
     {
         Meshes = exportContext.Meshes.ToList();
@@ -44,7 +56,8 @@ public class ExportAnimationsWindowViewModel : BaseViewModel
             .Select(clip => new ClipViewModel(clip))
             .ToList();
         ClipViewModels = new BindingList<ClipViewModel>(clips);
-
+        ClipViewModels.ListChanged += (_, _) => OnPropertyChanged(nameof(IsAllChecked));
+        
         CharacterName = exportContext.CharacterName;
         SourceMesh = Meshes.FirstOrDefault();
         TargetMesh = Meshes.FirstOrDefault(mesh => mesh != SourceMesh);
