@@ -13,6 +13,7 @@ public class ExportAnimationsWindowViewModel : BaseViewModel
 {
     public ICommand ExportCommand { get; } = new ExportCommand();
     public ICommand SelectFolderCommand { get; } = new SelectFolderCommand();
+    public ICommand SwapMeshesCommand { get; } = new SwapMeshesCommand();
     public ObservableCollection<ClipViewModel> ClipViewModels { get; set; }
     public List<Mesh> Meshes { get; }
     public string CharacterName { get; }

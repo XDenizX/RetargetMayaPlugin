@@ -52,6 +52,7 @@
         <Compile Include="Commands\BaseCommand.cs" />
         <Compile Include="Commands\ExportCommand.cs" />
         <Compile Include="Commands\SelectFolderCommand.cs" />
+        <Compile Include="Commands\SwapMeshesCommand.cs" />
         <Compile Include="Helpers\CharacterHelper.cs" />
         <Compile Include="Helpers\ClipHelper.cs" />
         <Compile Include="Helpers\ExportHelper.cs" />
