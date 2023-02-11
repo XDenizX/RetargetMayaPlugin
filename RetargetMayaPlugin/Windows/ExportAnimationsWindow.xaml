@@ -23,41 +23,62 @@
             <RowDefinition Height="*" MinHeight="50"/>
         </Grid.RowDefinitions>
         
-        <ScrollViewer 
+        <DockPanel
             Grid.Row="0"
             Grid.RowSpan="2"
             Grid.Column="0"
             Margin="5">
-            <ItemsControl ItemsSource="{Binding ClipViewModels}">
+            
+            <StackPanel
+                DockPanel.Dock="Top"
+                Margin="5"
+                Orientation="Horizontal">
                 
-                <ItemsControl.Template>
-                    <ControlTemplate>
-                        <StackPanel>
-                            <CheckBox 
-                                Content="Select all"
-                                IsChecked="{Binding IsAllChecked}"/>
-                            <ItemsPresenter />  
-                        </StackPanel>
-                    </ControlTemplate>
-                </ItemsControl.Template>
+                <TextBlock
+                    Text="Search"
+                    DockPanel.Dock="Top"
+                    Margin="5"/>
                 
-                <ItemsControl.ItemTemplate>
-                    <DataTemplate>
-                        <StackPanel 
-                            Orientation="Horizontal">
-                            <CheckBox 
-                                IsChecked="{Binding IsChecked}">
-                                <CheckBox.Content>
-                                    <TextBlock 
-                                        Text="{Binding Name, Mode=OneWay}"/>
-                                </CheckBox.Content>
-                            </CheckBox>
-                        </StackPanel>
-                    </DataTemplate>
-                </ItemsControl.ItemTemplate>
+                <TextBox
+                    Margin="5"
+                    Text="{Binding SearchText, UpdateSourceTrigger=PropertyChanged}"
+                    Width="200"/>
                 
-            </ItemsControl>
-        </ScrollViewer>
+            </StackPanel>
+            
+            <ScrollViewer>
+                <ItemsControl ItemsSource="{Binding ClipViewModels}">
+                
+                    <ItemsControl.Template>
+                        <ControlTemplate>
+                            <StackPanel>
+                                <CheckBox 
+                                    Content="Select all"
+                                    IsChecked="{Binding IsAllChecked}"/>
+                                <ItemsPresenter />  
+                            </StackPanel>
+                        </ControlTemplate>
+                    </ItemsControl.Template>
+                
+                    <ItemsControl.ItemTemplate>
+                        <DataTemplate>
+                            <StackPanel 
+                                Orientation="Horizontal">
+                                <CheckBox 
+                                    IsChecked="{Binding IsChecked}">
+                                    <CheckBox.Content>
+                                        <TextBlock 
+                                            Text="{Binding Name, Mode=OneWay}"/>
+                                    </CheckBox.Content>
+                                </CheckBox>
+                            </StackPanel>
+                        </DataTemplate>
+                    </ItemsControl.ItemTemplate>
+                
+                </ItemsControl>
+            </ScrollViewer>
+            
+        </DockPanel>
         
         <StackPanel
             Grid.Column="1"
