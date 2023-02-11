@@ -85,43 +85,53 @@
             Grid.Row="0"
             VerticalAlignment="Center">
             
-            <TextBlock 
-                Width="Auto"
-                Margin="5"
-                Height="20"
-                HorizontalAlignment="Center"
-                Text="Source mesh"/>
+            <StackPanel
+                Orientation="Horizontal">
+                
+                <TextBlock 
+                    Width="80"
+                    Margin="5"
+                    Height="20"
+                    HorizontalAlignment="Center"
+                    Text="Source mesh"/>
             
-            <ComboBox 
-                ItemsSource="{Binding Meshes}"
-                SelectedValue="{Binding SourceMesh}"
-                Width="180"
-                Height="20">
-                <ComboBox.ItemTemplate>
-                    <DataTemplate>
-                        <TextBlock Text="{Binding Name}"/>
-                    </DataTemplate>
-                </ComboBox.ItemTemplate>
-            </ComboBox>
+                <ComboBox 
+                    ItemsSource="{Binding Meshes}"
+                    SelectedValue="{Binding SourceMesh}"
+                    Width="180"
+                    Height="20">
+                    <ComboBox.ItemTemplate>
+                        <DataTemplate>
+                            <TextBlock Text="{Binding Name}"/>
+                        </DataTemplate>
+                    </ComboBox.ItemTemplate>
+                </ComboBox>
+                
+            </StackPanel>
             
-            <TextBlock 
-                Margin="5"
-                Width="Auto"
-                Height="20"
-                HorizontalAlignment="Center"
-                Text="Target mesh"/>
+            <StackPanel
+                Orientation="Horizontal">
+                
+                <TextBlock 
+                    Margin="5"
+                    Width="80"
+                    Height="20"
+                    HorizontalAlignment="Center"
+                    Text="Target mesh"/>
             
-            <ComboBox 
-                ItemsSource="{Binding Meshes}"
-                SelectedValue="{Binding TargetMesh}" 
-                Width="180"
-                Height="20">
-                <ComboBox.ItemTemplate>
-                    <DataTemplate>
-                        <TextBlock Text="{Binding Name}"/>
-                    </DataTemplate>
-                </ComboBox.ItemTemplate>
-            </ComboBox>
+                <ComboBox 
+                    ItemsSource="{Binding Meshes}"
+                    SelectedValue="{Binding TargetMesh}" 
+                    Width="180"
+                    Height="20">
+                    <ComboBox.ItemTemplate>
+                        <DataTemplate>
+                            <TextBlock Text="{Binding Name}"/>
+                        </DataTemplate>
+                    </ComboBox.ItemTemplate>
+                </ComboBox>
+                
+            </StackPanel>
             
             <StackPanel 
                 Orientation="Horizontal"
