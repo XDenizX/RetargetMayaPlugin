@@ -1,0 +1,60 @@
+﻿<Window
+    x:Class="RetargetMayaPlugin.Windows.ExportProgressWindow"
+    xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
+    xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
+    xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
+    xmlns:d="http://schemas.microsoft.com/expression/blend/2008"
+    xmlns:local="clr-namespace:RetargetMayaPlugin.Windows"
+    xmlns:viewModels="clr-namespace:RetargetMayaPlugin.ViewModels"
+    mc:Ignorable="d"
+    d:DataContext="{d:DesignInstance viewModels:ExportProgressWindowViewModel}"
+    WindowStartupLocation="CenterScreen"
+    Title="Export progress"
+    Height="100"
+    Width="600">
+    <Grid>
+        
+        <Grid.RowDefinitions>
+            <RowDefinition Height="*"/>
+            <RowDefinition Height="*"/>
+        </Grid.RowDefinitions>
+        
+        <ProgressBar
+            Grid.Row="0"
+            Margin="10"
+            Height="30"
+            VerticalAlignment="Center"
+            Value="{Binding CurrentClipNumber}"
+            Maximum="{Binding TotalClipsCount}"/>
+        
+        <StackPanel
+            Grid.Row="1"
+            Orientation="Horizontal"
+            HorizontalAlignment="Stretch">
+            
+            <TextBlock
+                HorizontalAlignment="Center"
+                VerticalAlignment="Center"
+                TextAlignment="Center"
+                Width="50">
+                
+                <TextBlock.Text>    
+                    <MultiBinding StringFormat="{}{0}/{1}">
+                        <Binding Path="CurrentClipNumber" />
+                        <Binding Path="TotalClipsCount" />
+                    </MultiBinding>
+                </TextBlock.Text>
+                
+            </TextBlock>
+            
+            <TextBlock
+                HorizontalAlignment="Left"
+                VerticalAlignment="Center"
+                TextAlignment="Left"
+                Width="200"
+                Text="{Binding CurrentClip.Name}"/>
+            
+        </StackPanel>
+        
+    </Grid>
+</Window>

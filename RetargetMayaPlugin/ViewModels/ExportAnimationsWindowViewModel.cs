@@ -73,8 +73,7 @@ public class ExportAnimationsWindowViewModel : BaseViewModel
             .Select(clip => new ClipViewModel(clip))
             .ToList();
         ClipViewModels = new ObservableCollection<ClipViewModel>(clips);
-        ClipViewModels.CollectionChanged += (_, _) => OnPropertyChanged(nameof(IsAllChecked));
-        
+
         _clipsCollectionView = CollectionViewSource.GetDefaultView(ClipViewModels);
         _clipsCollectionView.Filter = IsClipExist;
         

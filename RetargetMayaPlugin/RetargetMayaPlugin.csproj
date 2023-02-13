@@ -77,12 +77,17 @@
         <Compile Include="ViewModels\ClipViewModel.cs" />
         <Compile Include="ViewModels\ExportAnimationsWindowViewModel.cs" />
         <Compile Include="ViewModels\BaseViewModel.cs" />
+        <Compile Include="ViewModels\ExportProgressWindowViewModel.cs" />
         <Compile Include="Windows\ExportAnimationsWindow.xaml.cs">
             <DependentUpon>ExportAnimationsWindow.xaml</DependentUpon>
+        </Compile>
+        <Compile Include="Windows\ExportProgressWindow.xaml.cs">
+          <DependentUpon>ExportProgressWindow.xaml</DependentUpon>
         </Compile>
     </ItemGroup>
     <ItemGroup>
         <Page Include="Windows\ExportAnimationsWindow.xaml" />
+        <Page Include="Windows\ExportProgressWindow.xaml" />
     </ItemGroup>
     <ItemGroup>
       <None Include="packages.config" />
